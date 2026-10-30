@@ -1,4 +1,4 @@
-.PHONY: sync lint build-browser test test-unit test-browser browsers build check check-wheel check-floor demo native operations profile profile-updates
+.PHONY: sync lint build-browser test test-unit test-browser browsers build check check-wheel check-floor demo native operations gallery profile profile-updates
 
 sync:
 	uv sync --locked
@@ -46,6 +46,9 @@ profile:
 
 operations:
 	uv run uvicorn examples.operations_app:app --host 127.0.0.1 --port 8057
+
+gallery:
+	uv run uvicorn examples.gallery_app:app --host 127.0.0.1 --port 8060
 
 profile-updates:
 	uv run python bench/updates.py

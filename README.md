@@ -56,6 +56,23 @@ choose Canvas when the request-count setting is at least 10,000; smaller ones us
 See the [migration example](docs/migration.md) and [API contract](docs/api-contract.md).
 The current API contract applies to 0.4.0.
 
+## Explore the finance-card recipes
+
+```sh
+make gallery
+```
+
+Open [Finance cards](http://127.0.0.1:8060/): three composed examples for spending,
+cash balance and budget usage. A shared 7-day/4-week selector updates the charts,
+metrics and breakdowns; selecting a spending bar (or a row in View data) adds a
+plot annotation and a detail summary. Light/dark mode, data tables and chart
+exports use the existing public API. All figures are deterministic synthetic USD
+amounts ending 28 October 2026.
+
+See [the recipe guide](docs/finance-cards.md) and
+[the runnable example](examples/gallery_app.py). These examples require no new
+runtime dependencies.
+
 ## Run the second adoption app
 
 ```sh

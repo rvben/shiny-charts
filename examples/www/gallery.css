@@ -1,0 +1,55 @@
+/* Host styling for the finance recipes; chart defaults remain host-adaptive. */
+.finance-main { max-width: 1440px; }
+.finance-main h1 { text-wrap: balance; }
+.finance-scope { flex-shrink: 0; text-align: right; font-size: 12px; color: var(--bs-secondary-color); }
+.finance-disclosure { display: block; margin-bottom: 5px; font-weight: 600; color: var(--bs-body-color); }
+.finance-controls { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin: 28px 0 24px; }
+.finance-controls .shiny-input-container { margin: 0; width: auto; }
+.finance-controls .control-label { font-size: 12px; color: var(--bs-secondary-color); margin-bottom: 8px; }
+.finance-controls .shiny-options-group { display: flex; gap: 20px; }
+.finance-controls .radio-inline { margin: 0; white-space: nowrap; }
+.finance-controls input { accent-color: var(--bs-primary); }
+.finance-controls p { margin: 0; max-width: 45ch; color: var(--bs-secondary-color); font-size: 12px; }
+.finance-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; }
+.finance-card { min-width: 0; padding: 24px; border: 1px solid var(--bs-border-color); border-radius: 14px; background: var(--bs-body-bg); }
+.finance-card-heading h2 { font-size: 17px; font-weight: 600; letter-spacing: -.015em; margin: 0 0 6px; }
+.finance-card-heading p { font-size: 12px; color: var(--bs-secondary-color); margin: 0; }
+.finance-value { margin: 22px 0 3px; font-size: clamp(28px, 3vw, 38px); line-height: 1.2; letter-spacing: -.025em; font-weight: 700; font-variant-numeric: tabular-nums; }
+.finance-note { margin: 0 0 16px; color: var(--bs-secondary-color); font-size: 12px; }
+.finance-selection { border-top: 1px solid var(--bs-border-color); padding-top: 16px; margin-top: 8px; min-height: 60px; font-size: 12px; line-height: 1.7; }
+.finance-cash-summary { display: flex; flex-wrap: wrap; gap: 16px 28px; border-top: 1px solid var(--bs-border-color); padding-top: 16px; margin: 8px 0 0; }
+.finance-cash-summary dt { font-size: 11px; font-weight: 400; color: var(--bs-secondary-color); }
+.finance-cash-summary dd { margin: 4px 0 0; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.finance-balance { --chart-color-1: #118570; }
+[data-bs-theme='dark'] .finance-balance { --chart-color-1: #56c6ae; }
+.finance-budget { grid-column: 1 / -1; }
+.finance-budget-header { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+.finance-budget-total { margin: 0; color: var(--bs-secondary-color); font-size: 12px; }
+.finance-budget-total strong { color: var(--bs-body-color); font-size: 18px; font-variant-numeric: tabular-nums; }
+.finance-budget-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-top: 18px; }
+.finance-table { width: 100%; font-size: 12px; font-variant-numeric: tabular-nums; }
+.finance-table caption { caption-side: top; color: var(--bs-secondary-color); font-size: 12px; padding: 0 0 12px; }
+.finance-table th, .finance-table td { padding: 14px 8px; border-bottom: 1px solid var(--bs-border-color); text-align: right; white-space: nowrap; }
+.finance-table th:first-child { text-align: left; padding-left: 0; white-space: normal; overflow-wrap: anywhere; }
+.finance-table th:last-child, .finance-table td:last-child { padding-right: 0; }
+.finance-table thead th { color: var(--bs-secondary-color); font-weight: 400; }
+.finance-table tbody th { font-weight: 600; }
+.finance-over { color: #a34324; font-weight: 600; }
+[data-bs-theme='dark'] .finance-over { color: #ffb299; }
+.finance-main footer { margin-top: 12px; max-width: 80ch; }
+.finance-main footer p { margin: 0 0 8px; }
+@media (max-width: 1000px) {
+  .finance-budget-body { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 760px) {
+  .finance-grid { grid-template-columns: 1fr; }
+  .finance-main .page-heading { display: block; }
+  .finance-scope { text-align: left; margin-top: 16px; }
+  .finance-controls { align-items: start; flex-direction: column; gap: 12px; margin: 20px 0; }
+  .finance-budget-header { flex-direction: column; gap: 16px; }
+  .finance-card { padding: 20px 16px; }
+}
+@media (max-width: 400px) {
+  .finance-table { font-size: 11px; }
+  .finance-table th, .finance-table td { padding: 14px 4px; }
+}
