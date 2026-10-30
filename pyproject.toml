@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "shiny-charts"
 dynamic = ["version"]
-description = "Dashboard-native interactive charts for Shiny for Python."
+description = "Experimental, theme-aware interactive charts for Shiny for Python."
 requires-python = ">=3.10"
 dependencies = ["shiny>=1.5", "htmltools>=0.6"]
 license = "MIT"

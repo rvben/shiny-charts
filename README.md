@@ -1,7 +1,7 @@
-# shiny-charts
+# shiny-charts (experimental)
 
-Interactive charts for everyday **Shiny for Python dashboards**, currently evaluated
-in pilots. It has its own small semantic API and uses a bundled, modular
+**Experimental and pilot-only; not production-validated.** Interactive charts for
+everyday **Shiny for Python dashboards**. It has its own small semantic API and uses a bundled, modular
 Apache ECharts runtime. Plotly is not a runtime dependency.
 
 The switching case is native theme integration, fewer repeated layout decisions,
@@ -13,19 +13,21 @@ dashboard charts; Plotly's broader feature catalogue remains outside its scope.
 
 ## Project status
 
-**0.4.0 is the published stable API; this repository is at 0.5.0b1**, which adds an
-opt-in experimental native backend. Stable API status does not establish production
-adoption: use is currently pilot-only. The immediate focus is validating the existing
+**The project remains experimental.** PyPI **0.4.0** is the published non-prerelease
+version with a documented compatibility contract; this repository is at **0.5.0b1**,
+which adds an opt-in experimental native backend. The version number and API
+contract are not claims of production maturity: use is currently pilot-only.
+The immediate focus is validating the existing
 chart families in representative applications. Broader chart coverage and further
 native optimization should follow demonstrated pilot needs.
 
 [Source and issues](https://github.com/rvben/shiny-charts) ·
-[Stable package](https://pypi.org/project/shiny-charts/0.4.0/) ·
+[Published 0.4.0 package](https://pypi.org/project/shiny-charts/0.4.0/) ·
 [Experimental beta](https://pypi.org/project/shiny-charts/0.5.0b1/)
 
 ## Install
 
-The published stable release is **0.4.0**, with migration coverage, display fixes,
+The published non-prerelease version is **0.4.0**, with migration coverage, display fixes,
 divider APIs and a shared-axis bar/line overlay described below.
 
 ```sh

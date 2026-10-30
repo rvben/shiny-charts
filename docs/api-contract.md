@@ -1,6 +1,9 @@
 # API contract
 
-This document defines the supported surface of stable 0.4.0. Changes to documented builders, defaults,
+**Experimental project: pilot-only and not production-validated.** This contract
+describes compatibility expectations, not a claim of production maturity.
+
+This document defines the supported surface of published 0.4.0. Changes to documented builders, defaults,
 view behavior and selection fields require release notes and a version change. While the
 package remains 0.x, an incompatible public API change increments the minor version;
 patch releases preserve this contract. Rendering-engine options and wire internals remain
