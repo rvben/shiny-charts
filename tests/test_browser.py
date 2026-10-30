@@ -235,6 +235,22 @@ def test_native_finops_100k_canvas_and_bounded_actual_brush(page, server_url):
     expect(page.locator("#latency .sc-plot svg")).to_be_visible()
 
 
+def test_canvas_disposal_invalidates_queued_progressive_paint(page, server_url):
+    page.goto(server_url + "/fixture/")
+    page.wait_for_function("shinyCharts?.get('example')?.spec.rows.length === 2")
+    page.select_option("#renderer", "canvas")
+    page.wait_for_function("shinyCharts.get('example').spec.renderer === 'canvas'")
+    # Reproduce zrender's queued progressive continuation deterministically.
+    # Removing the output disposes its engine before the next animation frame.
+    page.evaluate("""async () => {
+      const state = shinyCharts.get('example');
+      const painter = state.engine.getZr().painter, redrawId = painter._redrawId;
+      requestAnimationFrame(() => painter._paintList([], [], false, redrawId));
+      state.el.remove();
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }""")
+
+
 def test_native_canvas_view_survives_filters_below_renderer_threshold(page, server_url):
     ready(page, server_url + "/native/")
     page.select_option("#n", "10000")

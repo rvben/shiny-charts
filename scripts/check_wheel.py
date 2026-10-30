@@ -30,6 +30,9 @@ with tempfile.TemporaryDirectory(prefix="shiny-charts-wheel-") as tmp:
     subprocess.run(
         ["uv", "pip", "install", "--python", str(python), str(wheel), "playwright"], check=True
     )
+    # The isolated environment can resolve a newer Playwright than uv.lock.
+    # Install its matching browser instead of relying on the developer's cache.
+    subprocess.run([str(python), "-m", "playwright", "install", "chromium"], check=True)
     # Copy the native example to prove it runs with the wheel's runtime deps.
     shutil.copytree(
         root / "examples", tmp / "examples", ignore=shutil.ignore_patterns("__pycache__", "app.py")

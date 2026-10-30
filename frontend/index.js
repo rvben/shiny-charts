@@ -273,6 +273,12 @@ function dispose(el) {
     state.observer.disconnect();
     el.removeEventListener('keydown', state.keydown);
     if (state.resizeFrame != null) cancelAnimationFrame(state.resizeFrame);
+    // Invalidate queued progressive Canvas paints before their layers disappear.
+    // zrender 6.0 dispose() alone leaves those animation-frame callbacks active.
+    if (state.spec.renderer === 'canvas') {
+      const renderer = state.engine.getZr();
+      renderer.clear(); renderer.refreshImmediately();
+    }
     state.engine.dispose(); state.engine = null; charts.delete(el);
   }
 }
