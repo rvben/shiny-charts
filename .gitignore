@@ -1,0 +1,14 @@
+.venv/
+.venv-*/
+node_modules/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+dist/
+bench/results*.json
+bench/report*.md
+DESIGN.md
+.impeccable/
+PRODUCT.md
+
+native/target/

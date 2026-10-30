@@ -1,0 +1,22 @@
+[build-system]
+requires = ["maturin>=1.8,<2"]
+build-backend = "maturin"
+
+[project]
+name = "shiny-charts-native"
+version = "0.1.0b1"
+requires-python = ">=3.10"
+description = "Experimental Arrow-to-wire accelerator for shiny-charts"
+license = "MIT"
+readme = "README.md"
+license-files = ["LICENSE", "THIRD_PARTY_LICENSES.txt"]
+classifiers = ["Development Status :: 4 - Beta", "Programming Language :: Rust", "Programming Language :: Python :: 3"]
+
+[project.urls]
+Repository = "https://github.com/rvben/shiny-charts"
+Issues = "https://github.com/rvben/shiny-charts/issues"
+
+[tool.maturin]
+bindings = "pyo3"
+module-name = "_shiny_charts_native"
+strip = true

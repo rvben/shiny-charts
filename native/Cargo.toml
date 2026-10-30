@@ -1,0 +1,15 @@
+[package]
+name = "shiny-charts-native"
+version = "0.1.0-beta.1"
+edition = "2021"
+license = "MIT"
+description = "Experimental Arrow-to-wire accelerator for shiny-charts"
+[lib]
+name = "_shiny_charts_native"
+crate-type = ["cdylib"]
+[dependencies]
+pyo3 = { version = "0.28.3", features = ["extension-module", "abi3-py310"] }
+arrow-array = { version = "58", features = ["ffi"] }
+arrow-schema = "58"
+serde_json = "1"
+serde = "1"

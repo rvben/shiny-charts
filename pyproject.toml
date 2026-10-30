@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "shiny-charts"
+dynamic = ["version"]
+description = "Dashboard-native interactive charts for Shiny for Python."
+requires-python = ">=3.10"
+dependencies = ["shiny>=1.5", "htmltools>=0.6"]
+license = "MIT"
+readme = "README.md"
+keywords = ["shiny", "charts", "dashboard", "echarts", "interactive"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+native = ["shiny-charts-native==0.1.0b1"]
+
+[project.urls]
+Repository = "https://github.com/rvben/shiny-charts"
+Issues = "https://github.com/rvben/shiny-charts/issues"
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio", "playwright>=1.50", "ruff", "pandas>=2", "polars>=1", "numpy>=1.26", "plotly>=6", "shiny-plotly>=0.4.3", "httpx"]
+
+adoption = ["shinyhub-bookmarks==0.5.2"]
+
+[tool.hatch.version]
+path = "src/shiny_charts/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/shiny_charts"]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["native/target", "**/__pycache__", "**/.pytest_cache"]
+include = ["src", "native", "frontend", "tests", "examples", "scripts", "docs", "bench/*.py", "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "LICENSE", "THIRD_PARTY.md", "pyproject.toml", "uv.lock", "package.json", "package-lock.json", "Makefile"]
+
+[tool.uv]
+default-groups = ["dev", "adoption"]
+cache-keys = [{ file = "pyproject.toml" }, { file = "src/shiny_charts/_version.py" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Embedded JavaScript and selectors are kept intact in the browser harness.
+"tests/test_browser.py" = ["E501"]
+"tests/test_adoption.py" = ["E501"]
+"tests/test_portfolio.py" = ["E501"]
+"tests/fixtures/portfolio_original.py" = ["E501", "I", "F841"]
+"bench/*.py" = ["E501"]
+
+[tool.uv.sources]
+shiny-charts-native = { path = "native" }

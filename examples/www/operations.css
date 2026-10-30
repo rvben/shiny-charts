@@ -1,0 +1,15 @@
+.operations-controls .shiny-input-container:first-child { flex: 1 1 330px; width: 330px; min-width: 0; max-width: 100%; }
+.operations-controls .shiny-input-container { flex: 0 1 220px; max-width: 100%; }
+.operations-controls select { width: 100%; }
+.update-controls { margin-top: 16px; align-items: center; }
+.update-controls .shiny-input-container { min-width: 0; flex: 0 1 auto; }
+.update-controls label { font-size: 14px; color: var(--bs-body-color); }
+.compact-card { height: 330px; }
+.detail-panel { overflow-wrap: anywhere; }
+@media (max-width: 900px) { .operations-controls .shiny-input-container { flex: 1 1 220px; } }
+@media (max-width: 480px) {
+  .operations-controls .shiny-input-container { flex-basis: 100%; }
+  .update-controls { align-items: stretch; }
+  .update-controls .btn { flex: 1 1 150px; height: auto; min-height: 38px; }
+  .update-controls .shiny-input-container { flex-basis: 100%; }
+}

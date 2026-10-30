@@ -1,0 +1,61 @@
+.shiny-charts-output {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 340px;
+  min-height: 220px;
+  color: var(--chart-fg, var(--bs-body-color, inherit));
+  font-family: var(--chart-font, inherit);
+}
+.sc-plot { flex: 1 1 auto; min-height: 150px; width: 100%; }
+.sc-legend, .sc-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.sc-legend { padding: 2px 12px 6px; }
+.sc-tools { padding: 8px 12px 4px; }
+.sc-tools button, .sc-legend-item, .sc-data-dialog button {
+  font: inherit; font-size: 12px; color: inherit; background: transparent;
+  border: 0; border-radius: 4px; padding: 5px 4px; cursor: pointer;
+}
+.sc-tools button:hover, .sc-legend-item:hover, .sc-data-dialog button:hover { background: var(--chart-hover, var(--bs-tertiary-bg, #eeeeee)); }
+.sc-tools button:focus-visible, .sc-legend-item:focus-visible, .sc-data-dialog button:focus-visible { outline: 2px solid var(--chart-focus, var(--bs-primary, #087eac)); outline-offset: 2px; }
+.sc-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.sc-legend-item[aria-pressed="false"] { text-decoration: line-through; }
+.sc-swatch { display: inline-block; width: 12px; height: 3px; border-radius: 1px; }
+.sc-summary { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.sc-empty { position: absolute; inset: 30% 24px auto; text-align: center; color: var(--chart-muted, var(--bs-secondary-color, inherit)); }
+.sc-data-dialog { width: min(800px, 92vw); max-height: 80vh; overflow: auto; padding: 24px; color: var(--chart-fg, var(--bs-body-color, #1c2635)); background: var(--chart-surface, var(--bs-body-bg, white)); border: 1px solid var(--chart-border, var(--bs-border-color, #ddd)); border-radius: 12px; }
+.sc-data-dialog::backdrop { background: rgb(0 0 0 / 45%); }
+.sc-data-dialog h2 { font: inherit; font-size: 20px; font-weight: 600; margin: 0 0 12px; }
+.sc-data-dialog table { width: 100%; margin-top: 16px; border-collapse: collapse; font-size: 12px; }
+.sc-data-dialog th, .sc-data-dialog td { padding: 8px; text-align: left; border-bottom: 1px solid var(--chart-border, var(--bs-border-color, #ddd)); }
+.sc-data-dialog caption { caption-side: top; color: inherit; }
+.shiny-charts-output [hidden] { display: none !important; }
+@media (max-width: 480px) { .sc-tools { gap: 2px 8px; } .sc-tools button { min-height: 36px; } }
+
+.sc-legend-item { max-width: 100%; min-width: 0; text-align: start; overflow-wrap: anywhere; }
+.sc-swatch { flex-shrink: 0; }
+.sc-data-dialog th, .sc-data-dialog td { overflow-wrap: anywhere; max-width: 28rem; }
+.sc-data-dialog { scrollbar-color: var(--chart-border, var(--bs-border-color, #ddd)) var(--chart-surface, var(--bs-body-bg, white)); }
+
+.sc-loading, .sc-error { padding: 16px; color: inherit; font: inherit; }
+.sc-data-dialog td { font-variant-numeric: tabular-nums; }
+
+.sc-swatch-bar, .sc-swatch-histogram { height: 10px; width: 10px; border-radius: 2px; }
+.sc-swatch-scatter { height: 8px; width: 8px; border-radius: 50%; }
+.sc-empty-none { position: static; margin: auto; padding: 24px; }
+.sc-progress { padding: 4px 12px; color: var(--chart-muted, var(--bs-secondary-color, inherit)); font: inherit; font-size: 12px; }
+
+.sc-title { flex: 0 0 auto; min-width: 0; margin: 0; padding: 4px 12px 8px; font: inherit; font-size: 14px; font-weight: 600; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Card-width adaptations retain complete accessible action names. */
+.shiny-charts-output { container-type: inline-size; }
+.sc-legend, .sc-tools { flex: 0 0 auto; }
+.sc-legend-scroll { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+.sc-legend-scroll .sc-legend-item { flex: 0 0 auto; max-width: none; white-space: nowrap; }
+.sc-tools { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+.sc-tools button { display: inline-flex; align-items: center; gap: 6px; flex: 0 0 auto; white-space: nowrap; }
+.sc-tools svg { width: 16px; height: 16px; flex: 0 0 auto; }
+.sc-swatch-pie { width: 10px; height: 10px; border-radius: 2px; }
+@container (max-width: 480px) {
+  .sc-tools button { min-width: 36px; min-height: 36px; justify-content: center; }
+  .sc-tool-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+}
